@@ -20,6 +20,7 @@ vim.o.timeoutlen = 300
 vim.o.list = true
 vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
 vim.o.scrolloff = 8
+vim.opt.cinoptions = 'l1'
 
 vim.schedule(function()
     vim.o.clipboard = 'unnamedplus'
