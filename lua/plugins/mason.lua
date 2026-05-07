@@ -11,6 +11,7 @@ return {
 
             vim.lsp.config('pyright', {
                 cmd = { vim.fn.stdpath('data') .. '/mason/bin/pyright-langserver', '--stdio' },
+                root_markers = { 'prightconfig.json', 'pyproject.toml', '.git' },
                 capabilities = capabilities,
                 filetypes = { 'python' },
                 settings = {
@@ -33,8 +34,14 @@ return {
                 filetypes = { 'javascript', 'javascriptreact', 'typescript', 'typescriptreact' },
             })
 
+            vim.lsp.config('rust_analyzer', {
+                capabilities = capabilities,
+                cmd = { vim.fn.stdpath('data') .. '/mason/bin/rust-analyzer' },
+                filetypes = { 'rust' },
+            })
+
             require('mason-lspconfig').setup({
-                ensure_installed = { 'pyright', 'clangd', 'ts_ls', 'html', 'cssls', 'eslint' },
+                ensure_installed = { 'pyright', 'clangd', 'ts_ls', 'html', 'cssls', 'eslint', 'rust_analyzer' },
                 automatic_enable = true,
             })
 

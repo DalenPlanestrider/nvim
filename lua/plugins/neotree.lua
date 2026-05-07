@@ -8,7 +8,15 @@ return {
             "nvim-tree/nvim-web-devicons", -- optional, but recommended
         },
         lazy = false, -- neo-tree will lazily load itself
-        config = function()
+        opts = {
+            filesystem = {
+                filtered_items = {
+                    visible = true,
+                },
+            },
+        },
+        config = function(_, opts)
+            require('neo-tree').setup(opts)
             vim.keymap.set('n', '<leader>ft', ':Neotree filesystem reveal toggle left<CR>', { desc = 'browse files' })
         end
     }
