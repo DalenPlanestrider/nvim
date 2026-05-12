@@ -14,7 +14,7 @@ return {
         'slugbyte/lackluster.nvim',
         lazy = false,
     },
-    {
-        'nvim-treesitter/nvim-treesitter'
-    }
+    -- {
+    --    'nvim-treesitter/nvim-treesitter'
+    --}
 }

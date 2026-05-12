@@ -1,15 +1,12 @@
 return {
-    {
-        'nvim-treesitter/nvim-treesitter',
-        build = ':TSUpdate',
-        config = function()
-            require('nvim-treesitter.configs').setup({
-                ensure_installed = { 'python', 'c', 'cpp', 'lua', 'rust' },
-                auto_install = true,
-                highlight = {
-                    enable = true,
-                },
-            })
-        end
-    }
+  "romus204/tree-sitter-manager.nvim",
+  config = function()
+    require("tree-sitter-manager").setup({
+      auto_install = true,
+      ensure_installed = {
+        "c", "cpp", "python", "rust",
+        "html", "css", "javascript", "typescript", "tsx",
+      },
+    })
+  end,
 }

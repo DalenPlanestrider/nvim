@@ -31,6 +31,13 @@ vim.keymap.set('n', '<leader><BS>', ':bd<CR>')
 vim.keymap.set('n', '<leader><Tab>', ':vsplit<CR>')
 vim.keymap.set('n', '<leader><CR>', '<C-w><C-w>')
 vim.keymap.set('n', '<leader>ec', ':e ~/.config/nvim/init.lua<CR>') -- quick edit config
-vim.keymap.set('n', '<leader>ep', ':e ~/.config/nvim/lua/plugins.lua<CR>') -- quick edit plugins lit
+vim.keymap.set('n', '<leader>ep', ':e ~/.config/nvim/lua/plugins.lua<CR>') -- quick edit plugins lit'
+
+vim.api.nvim_create_autocmd('FileType', {
+  callback = function()
+    pcall(vim.treesitter.start)
+    --vim.bo.indentexpr = "v:lua.vim.treesitter.indentexpr()"
+  end,
+})
 
 require("config.lazy")
