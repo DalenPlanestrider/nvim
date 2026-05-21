@@ -22,6 +22,12 @@ vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
 vim.o.scrolloff = 8
 vim.opt.cinoptions = 'l1'
 
+-- Treesitter-based folding
+vim.o.foldmethod = 'expr'
+vim.o.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
+vim.o.foldlevelstart = 99  -- open all folds by default
+vim.o.foldtext = ''        -- show first line of fold as-is (clean look)
+
 vim.schedule(function()
     vim.o.clipboard = 'unnamedplus'
 end)
