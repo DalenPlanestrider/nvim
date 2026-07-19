@@ -44,9 +44,14 @@ return {
             vim.keymap.set('n', '<leader>fb', builtin.buffers, { desc = 'find buffers' })
             vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = 'find help tags' })
 
-            vim.keymap.set('n', '<leader>fA', function()
+            vim.keymap.set('n', '<leader>fag', function()
                 builtin.live_grep({ vimgrep_arguments = everything_args })
             end, { desc = 'grep everything' })
+            vim.keymap.set('n', '<leader>faf', function()
+                builtin.find_files({ find_command = {
+                    'rg', '--files', '--hidden', '--no-ignore', '--glob', '!.git/',
+                } })
+            end, { desc = 'find ALL files' })
         end
     }
 }
